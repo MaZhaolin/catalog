@@ -1,1 +1,1 @@
-# `catalog.js` 自动生成文章目录
+## `catalog.js` 自动生成文章目录

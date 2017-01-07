@@ -25,7 +25,7 @@
 				li = null;
 
 				//初始化根目录
-				data[0] = $('<ul></ul>');
+				data[0] = $('<ol></ol>');
 				data[0].appendTo($(opt.box));
 				
 				header.map(function(i,e){
@@ -37,7 +37,7 @@
 						lv -= parseInt(prev) - parseInt(e.tagName.charAt(1));
 					}else if(prev < e.tagName.charAt(1)){
 						lv += parseInt(e.tagName.charAt(1)) - parseInt(prev);
-						data[lv] = $('<ul></ul>');
+						data[lv] = $('<ol></ol>');
 						prevLi.append(data[lv]);
 					}
 
@@ -78,16 +78,16 @@
 			var toggleActive = function(e) {
 				$(opt.box + ' a').removeClass('active');
 				e.addClass('active');
-				$(opt.box + ' ul > li > ul').hide();
-				$(opt.box + ' .active').parents('ul').show();
-				$(opt.box + ' .active ~ ul').show();
+				$(opt.box + ' ol > li > ol').hide();
+				$(opt.box + ' .active').parents('ol').show();
+				$(opt.box + ' .active ~ ol').show();
 			}
 
 			var init = function() { 
-				$(opt.box + ' ul > li > ul').hide();
-
 				addIndex();
 				createCatalog();
+				//隐藏子目录
+				$(opt.box + ' ol > li > ol').hide();
 				bindAnimate();
 				bindScroll();
 			}	
@@ -96,6 +96,5 @@
 		})
 
 	}
-})(window.jQuery); 
-$('.container').catalog();
+})(window.jQuery);
 
